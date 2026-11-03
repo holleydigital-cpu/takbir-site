@@ -2,8 +2,8 @@
 // 1. Choisit la langue : ?lang=fr ou ?lang=en, sinon celle du navigateur.
 // 2. Remplit l'adresse e-mail de support partout (à changer à un seul endroit).
 
-// ⚠️ Adresse de support provisoire : la remplacer par l'adresse dédiée à Takbir.
-const SUPPORT_EMAIL = "ainfares.yacine@gmail.com";
+// Adresse de support (boîte Zoho Mail du domaine).
+const SUPPORT_EMAIL = "contact@takbir-app.com";
 
 // Lien App Store (il marche une fois l'app publiée).
 const APP_STORE_URL = "https://apps.apple.com/app/id6829789838";
