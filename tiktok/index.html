@@ -22,12 +22,15 @@
     // Lien à mettre en bio TikTok / Instagram : https://takbir-app.com/tiktok
     // Dans un vrai navigateur : on va directement sur le site.
     // Dans le navigateur intégré de TikTok (qui ne montre pas la bannière App Store),
-    // la page montre le bouton App Store.
+    // on envoie directement sur l'App Store.
     // TikTok bloque toute sortie automatique vers Safari (testé le 2026-11-04).
     (function () {
       var ua = navigator.userAgent || "";
       var inApp = /TikTok|musical_ly|Bytedance|Instagram|FBAN|FBAV|Snapchat|Twitter/i.test(ua);
-      if (!inApp) location.replace("https://takbir-app.com/?from=tiktok");
+      // Navigateur normal : le site. TikTok, Instagram… : direct sur l'App Store
+      // (GitHub Pages ne permet pas une vraie redirection 301, celle-ci est instantanée).
+      location.replace(inApp ? "https://apps.apple.com/app/id6829789838"
+                             : "https://takbir-app.com/?from=tiktok");
     })();
   </script>
 </head>
