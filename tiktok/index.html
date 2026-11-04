@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Takbir</title>
+  <meta name="robots" content="noindex">
+  <meta property="og:title" content="Takbir — Le scroll peut attendre, la prière non">
+  <meta property="og:image" content="https://takbir-app.com/icon.png">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="../icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .out { min-height: 100vh; display: flex; flex-direction: column; align-items: center;
+           justify-content: center; gap: 20px; padding: 24px; text-align: center; }
+    .out[hidden] { display: none; }
+    .out h1 { font-size: 26px; line-height: 1.25; margin: 0; }
+    .out p { margin: 0; color: #9A9A9A; font-size: 16px; line-height: 1.5; max-width: 320px; }
+    .out .hint { font-size: 14px; }
+    .out .dots { color: #E9D6AE; font-weight: 700; }
+  </style>
+  <script>
+    // Lien à mettre en bio TikTok / Instagram : https://takbir-app.com/tiktok
+    // Dans le navigateur intégré de TikTok, la bannière « Ouvrir dans l'App Store »
+    // ne s'affiche pas : on essaie d'ouvrir le site dans Safari (ou Chrome sur Android).
+    // Si l'app bloque la sortie, on montre un bouton App Store et comment ouvrir dans Safari.
+    (function () {
+      var dest = "takbir-app.com/?from=tiktok";
+      var ua = navigator.userAgent || "";
+      var inApp = /TikTok|musical_ly|Bytedance|Instagram|FBAN|FBAV|Snapchat|Twitter/i.test(ua);
+      if (!inApp) { location.replace("https://" + dest); return; }
+      if (/iPhone|iPad|iPod/i.test(ua)) {
+        location.href = "x-safari-https://" + dest;
+      } else if (/Android/i.test(ua)) {
+        location.href = "intent://" + dest + "#Intent;scheme=https;end";
+      }
+      // Si on est toujours là après un instant, la sortie a été bloquée : plan B.
+      setTimeout(function () {
+        document.getElementById("fallback").hidden = false;
+      }, 1200);
+    })();
+  </script>
+</head>
+<body>
+  <main id="fallback" class="out" hidden>
+    <img class="app-icon" src="../icon.png" alt="Takbir">
+    <h1>Le scroll peut attendre,<br><span class="gold">la prière non.</span></h1>
+    <a class="store-button" href="https://apps.apple.com/app/id6829789838">
+      <span><small>Télécharger sur</small> App Store</span>
+    </a>
+    <p class="hint">Ou touche <span class="dots">•••</span> en haut à droite,<br>puis « Ouvrir dans le navigateur ».</p>
+  </main>
+</body>
+</html>
