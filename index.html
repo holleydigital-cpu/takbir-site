@@ -9,46 +9,444 @@
   <meta name="description" content="Takbir met tes réseaux sociaux en pause à chaque adhan. Prie à l'heure, puis rouvre-les avec un tasbih ou un verset.">
   <meta property="og:title" content="Takbir — Le scroll peut attendre, la prière non">
   <meta property="og:description" content="Tes réseaux font une pause à chaque adhan.">
-  <meta property="og:image" content="icon.png">
+  <meta property="og:image" content="https://takbir-app.com/icon.png">
   <meta name="theme-color" content="#000000">
   <meta name="apple-itunes-app" content="app-id=6829789838">
   <link rel="icon" href="icon.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="home.css">
   <script src="site.js"></script>
 </head>
-<body>
+<body class="home">
+  <!-- Icônes réutilisées -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="archGold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9D6AE"/><stop offset="1" stop-color="#C9A86A"/></linearGradient>
+    </defs>
+    <symbol id="arch" viewBox="0 0 48 60">
+      <path d="M8 56V26C8 15 16 8 24 4c8 4 16 11 16 22v30" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/>
+      <path d="M14 56V28c0-8 5-13 10-16 5 3 10 8 10 16v28z" fill="url(#archGold)"/>
+    </symbol>
+    <symbol id="apple" viewBox="0 0 24 24"><path fill="currentColor" d="M16.37 12.6c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.47.83-.72 0-1.82-.81-2.99-.79-1.54.02-2.96.9-3.75 2.27-1.6 2.78-.41 6.89 1.15 9.14.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.77.74 2.98.72 1.23-.02 2.01-1.12 2.76-2.23.87-1.28 1.23-2.52 1.25-2.58-.03-.01-2.39-.92-2.4-3.66ZM14.1 5.86c.63-.77 1.06-1.83.94-2.89-.91.04-2.01.61-2.66 1.37-.58.67-1.1 1.76-.96 2.8 1.01.08 2.05-.52 2.68-1.28Z"/></symbol>
+    <symbol id="lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="2.2"/></symbol>
+  </svg>
+
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="./"><img src="icon.png" alt="">Takbir</a>
+      <nav>
+        <a href="#fonctionnement"><span data-l="fr">Fonctionnement</span><span data-l="en">How it works</span></a>
+        <a href="#fonctionnalites"><span data-l="fr">Fonctionnalités</span><span data-l="en">Features</span></a>
+        <a href="#questions"><span data-l="fr">Questions</span><span data-l="en">FAQ</span></a>
+      </nav>
+      <a class="btn-small" data-appstore href="#"><span data-l="fr">Télécharger</span><span data-l="en">Download</span></a>
+    </div>
+  </header>
+
   <main>
-    <section class="hero">
-      <img class="app-icon" src="icon.png" alt="Takbir">
+    <!-- ============ Haut de page ============ -->
+    <section class="hero-v2">
+      <div class="wrap">
+        <span class="pill"><i></i><span data-l="fr">Disponible sur iPhone</span><span data-l="en">Available on iPhone</span></span>
 
-      <h1 data-l="fr">Le scroll peut attendre,<br><span class="gold">la prière non.</span></h1>
-      <h1 data-l="en">The scroll can wait.<br><span class="gold">The prayer can't.</span></h1>
+        <h1 data-l="fr">Le scroll peut attendre,<br><span class="gold">la prière non.</span></h1>
+        <h1 data-l="en">The scroll can wait.<br><span class="gold">The prayer can't.</span></h1>
 
-      <p data-l="fr">À chaque adhan, Takbir met tes réseaux sociaux en pause. Prie à l’heure, puis rouvre-les avec un tasbih ou un verset.</p>
-      <p data-l="en">At every adhan, Takbir pauses your social apps. Pray on time, then unlock them with a tasbih or a verse.</p>
+        <p class="lead" data-l="fr">5 minutes avant chaque adhan, Takbir met tes réseaux sociaux en pause. Tu pries à l’heure, puis tu les rouvres avec un tasbih ou un verset.</p>
+        <p class="lead" data-l="en">5 minutes before every adhan, Takbir pauses your social apps. You pray on time, then unlock them with a tasbih or a verse.</p>
 
-      <a class="store-button" data-appstore href="#">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.37 12.6c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.47.83-.72 0-1.82-.81-2.99-.79-1.54.02-2.96.9-3.75 2.27-1.6 2.78-.41 6.89 1.15 9.14.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.77.74 2.98.72 1.23-.02 2.01-1.12 2.76-2.23.87-1.28 1.23-2.52 1.25-2.58-.03-.01-2.39-.92-2.4-3.66ZM14.1 5.86c.63-.77 1.06-1.83.94-2.89-.91.04-2.01.61-2.66 1.37-.58.67-1.1 1.76-.96 2.8 1.01.08 2.05-.52 2.68-1.28Z"/></svg>
-        <span>
-          <small data-l="fr">Télécharger sur</small><small data-l="en">Download on the</small>
-          App Store
-        </span>
-      </a>
+        <a class="store-button" data-appstore href="#">
+          <svg aria-hidden="true"><use href="#apple"/></svg>
+          <span><small data-l="fr">Télécharger sur</small><small data-l="en">Download on the</small>App Store</span>
+        </a>
+        <p class="note" data-l="fr">7 jours offerts · Sans compte · Pensé pour iPhone</p>
+        <p class="note" data-l="en">7-day free trial · No account · Made for iPhone</p>
+      </div>
 
-      <ul class="features">
-        <li data-l="fr">Pause à chaque adhan</li>
-        <li data-l="fr">Tasbih &amp; istighfar</li>
-        <li data-l="fr">Un verset par jour</li>
-        <li data-l="fr">Réveil pour Fajr</li>
-        <li data-l="en">Pause at every adhan</li>
-        <li data-l="en">Tasbih &amp; istighfar</li>
-        <li data-l="en">A verse a day</li>
-        <li data-l="en">Fajr wake-up alarm</li>
+      <div class="hero-phones">
+        <!-- Écran de pause -->
+        <div class="phone side left" aria-hidden="true">
+          <div class="screen">
+            <div class="sbar"><span>16:46</span><span class="icons"><i style="width:15px;height:9px"></i><i style="width:22px;height:10px;border-radius:3px"></i></span></div>
+            <div class="notif">
+              <img src="icon.png" alt="">
+              <div>
+                <b>Takbir <span data-l="fr">maintenant</span><span data-l="en">now</span></b>
+                <span data-l="fr">Tu as prié Asr ? Touche ici pour rouvrir tes apps.</span>
+                <span data-l="en">Did you pray Asr? Tap here to unlock your apps.</span>
+              </div>
+            </div>
+            <div class="shield">
+              <svg class="arch"><use href="#arch"/></svg>
+              <h4 data-l="fr">Instagram est en pause</h4>
+              <h4 data-l="en">Instagram is paused</h4>
+              <p data-l="fr">C’est l’heure de Asr. Ta prière d’abord, le reste ensuite.</p>
+              <p data-l="en">It’s time for Asr. Your prayer first, everything else after.</p>
+            </div>
+            <span class="btn-s" data-l="fr">Fermer</span><span class="btn-s" data-l="en">Close</span>
+            <span class="btn-ghost" data-l="fr">Rouvrir après ma prière</span><span class="btn-ghost" data-l="en">Unlock after my prayer</span>
+          </div>
+        </div>
+
+        <!-- Accueil -->
+        <div class="phone center" aria-hidden="true">
+          <div class="screen">
+            <div class="sbar"><span>15:22</span><span class="icons"><i style="width:15px;height:9px"></i><i style="width:22px;height:10px;border-radius:3px"></i></span></div>
+            <div class="s-hello">Assalamu alaykum</div>
+            <div class="s-title">
+              <b data-l="fr">Aujourd’hui</b><b data-l="en">Today</b>
+              <span class="chip-s"><svg viewBox="0 0 48 60"><use href="#arch"/></svg><span data-l="fr">12 jours</span><span data-l="en">12 days</span></span>
+            </div>
+            <div class="card-s">
+              <div class="next">
+                <div>
+                  <div class="muted" data-l="fr">Prochaine prière</div><div class="muted" data-l="en">Next prayer</div>
+                  <div class="big g">Asr</div>
+                  <div class="when" data-l="fr">dans 1 h 24 · 16:51</div><div class="when" data-l="en">in 1 h 24 · 16:51</div>
+                </div>
+                <svg class="arch"><use href="#arch"/></svg>
+              </div>
+              <div class="next-foot" data-l="fr">Tes réseaux se mettront en pause à 16:46, 5 min avant.</div>
+              <div class="next-foot" data-l="en">Your social apps will pause at 16:46, 5 min before.</div>
+            </div>
+            <div class="sec-t"><b data-l="fr">Tes prières du jour</b><b data-l="en">Today’s prayers</b><span data-l="fr">2 sur 2 à l’heure</span><span data-l="en">2 of 2 on time</span></div>
+            <div class="card-s prayers">
+              <div class="pr"><div class="c done">✓</div><b>Fajr</b><span>06:42</span></div>
+              <div class="pr"><div class="c done">✓</div><b>Dhuhr</b><span>13:28</span></div>
+              <div class="pr"><div class="c next-c"></div><b>Asr</b><span>16:51</span></div>
+              <div class="pr"><div class="c"></div><b class="muted">Maghrib</b><span>19:34</span></div>
+              <div class="pr"><div class="c"></div><b class="muted">Isha</b><span>21:07</span></div>
+            </div>
+            <div class="card-s goal">
+              <small data-l="fr">OBJECTIF DU JOUR</small><small data-l="en">TODAY’S GOAL</small>
+              <div class="bars5"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
+              <p data-l="fr">Encore 3 pour une journée parfaite</p><p data-l="en">3 more for a perfect day</p>
+            </div>
+            <div class="tabbar">
+              <div class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11l8-7 8 7v9H4z"/></svg><span data-l="fr">Aujourd’hui</span><span data-l="en">Today</span></div>
+              <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 20V12M12 20V5M18 20v-9"/></svg><span data-l="fr">Ma prière</span><span data-l="en">My prayer</span></div>
+              <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg><span data-l="fr">Réglages</span><span data-l="en">Settings</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Verset -->
+        <div class="phone side right" aria-hidden="true">
+          <div class="screen">
+            <div class="sbar"><span>16:58</span><span class="icons"><i style="width:15px;height:9px"></i><i style="width:22px;height:10px;border-radius:3px"></i></span></div>
+            <div class="topnav"><span class="round">‹</span><span class="share" data-l="fr">Partager</span><span class="share" data-l="en">Share</span></div>
+            <div class="verse-ref">AL-BAQARA · 2:153</div>
+            <div class="verse-ar">يَا أَيُّهَا الَّذِينَ آمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ ۚ إِنَّ اللَّهَ مَعَ الصَّابِرِينَ</div>
+            <div class="verse-ph">Yaa ayyuhal lazeena aamanus ta’eenoo bissabri was Salaah; innal laaha ma’as-saabireen</div>
+            <div class="verse-tr" data-l="fr">Vous qui croyez ! Armez-vous de patience et aidez-vous de la prière. Allah est avec ceux qui font preuve de constance.</div>
+            <div class="verse-tr" data-l="en">O you who have believed, seek help through patience and prayer. Indeed, Allah is with the patient.</div>
+            <div class="verse-cr" data-l="fr">Traduction : Rachid Maach</div><div class="verse-cr" data-l="en">Translation: Saheeh International</div>
+            <span class="btn-s" style="margin-top:auto;margin-bottom:30px" data-l="fr">J’ai lu, rouvrir mes apps</span>
+            <span class="btn-s" style="margin-top:auto;margin-bottom:30px" data-l="en">I’ve read it, unlock my apps</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Bandeau ============ -->
+    <div class="strip">
+      <ul class="wrap">
+        <li><svg aria-hidden="true"><use href="#lock"/></svg><span data-l="fr">Temps d’écran d’Apple</span><span data-l="en">Apple Screen Time</span></li>
+        <li><svg aria-hidden="true"><use href="#lock"/></svg><span data-l="fr">Aucun compte à créer</span><span data-l="en">No account needed</span></li>
+        <li><svg aria-hidden="true"><use href="#lock"/></svg><span data-l="fr">Tes horaires restent sur ton iPhone</span><span data-l="en">Your prayer times stay on your iPhone</span></li>
       </ul>
+    </div>
+
+    <!-- ============ Fonctionnement ============ -->
+    <section class="block" id="fonctionnement">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-l="fr">Fonctionnement</span><span class="eyebrow" data-l="en">How it works</span>
+          <h2 data-l="fr">Tu règles une fois.<br>Takbir veille cinq fois par jour.</h2>
+          <h2 data-l="en">Set it up once.<br>Takbir looks after you five times a day.</h2>
+          <p data-l="fr">Pas besoin de volonté au moment de l’adhan : la pause arrive toute seule.</p>
+          <p data-l="en">No willpower needed when the adhan comes: the pause happens on its own.</p>
+        </div>
+
+        <div class="steps">
+          <div class="step reveal">
+            <div class="num">1</div>
+            <h3 data-l="fr">Tes horaires de prière</h3><h3 data-l="en">Your prayer times</h3>
+            <p data-l="fr">Takbir calcule Fajr, Dhuhr, Asr, Maghrib et Isha selon ta ville et ta méthode de calcul.</p>
+            <p data-l="en">Takbir calculates Fajr, Dhuhr, Asr, Maghrib and Isha for your city and calculation method.</p>
+            <div class="visual">
+              <div class="mini-row"><b>Dhuhr</b><span>13:28</span></div>
+              <div class="mini-row now"><b>Asr</b><span data-l="fr">16:51 · bientôt</span><span data-l="en">16:51 · soon</span></div>
+              <div class="mini-row"><b>Maghrib</b><span>19:34</span></div>
+            </div>
+          </div>
+
+          <div class="step reveal">
+            <div class="num">2</div>
+            <h3 data-l="fr">Tes apps en pause</h3><h3 data-l="en">Your apps on pause</h3>
+            <p data-l="fr">Tu choisis les apps qui te retiennent. 5 min avant l’adhan, elles se mettent en pause.</p>
+            <p data-l="en">Pick the apps that hold you back. 5 min before the adhan, they pause.</p>
+            <div class="visual">
+              <div class="mini-row"><span class="mini-app"><i class="app-dot" style="background:linear-gradient(135deg,#f9a03f,#d6249f,#5b4bdb)"></i><s>Instagram</s></span><span class="lock"><svg><use href="#lock"/></svg>Asr</span></div>
+              <div class="mini-row"><span class="mini-app"><i class="app-dot" style="background:#111;border:1px solid #333"></i><s>TikTok</s></span><span class="lock"><svg><use href="#lock"/></svg>Asr</span></div>
+              <div class="mini-row"><span class="mini-app"><i class="app-dot" style="background:#e62117"></i><s>YouTube</s></span><span class="lock"><svg><use href="#lock"/></svg>Asr</span></div>
+            </div>
+          </div>
+
+          <div class="step reveal">
+            <div class="num">3</div>
+            <h3 data-l="fr">Tu pries, puis tu rouvres</h3><h3 data-l="en">Pray, then unlock</h3>
+            <p data-l="fr">Pas de bouton « j’ai prié ». Un tasbih ou un verset, un vrai moment, puis tes apps reviennent.</p>
+            <p data-l="en">No “I prayed” button. A tasbih or a verse, a real moment, then your apps come back.</p>
+            <div class="visual">
+              <div class="choice">
+                <div><span class="ar">سُبْحَانَ ٱللَّٰهِ</span>Tasbih</div>
+                <div><span class="ar">آيَة</span><span data-l="fr">Verset</span><span data-l="en">Verse</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Fonctionnalités ============ -->
+    <section class="block" id="fonctionnalites" style="padding-top:20px">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-l="fr">Fonctionnalités</span><span class="eyebrow" data-l="en">Features</span>
+          <h2 data-l="fr">Bien plus qu’un bloqueur d’apps</h2>
+          <h2 data-l="en">Much more than an app blocker</h2>
+          <p data-l="fr">Tout pour faire de la prière à l’heure une habitude qui dure.</p>
+          <p data-l="en">Everything to make praying on time a habit that lasts.</p>
+        </div>
+
+        <!-- Tasbih -->
+        <div class="row reveal">
+          <div class="row-text">
+            <span class="eyebrow">Tasbih</span>
+            <h2 data-l="fr">20 secondes de dhikr, et tout se rouvre.</h2>
+            <h2 data-l="en">20 seconds of dhikr, and everything unlocks.</h2>
+            <p class="lead" data-l="fr">SubhanAllah, Alhamdulillah, Allahu Akbar : tu touches l’écran à chaque dhikr, Takbir compte pour toi.</p>
+            <p class="lead" data-l="en">SubhanAllah, Alhamdulillah, Allahu Akbar: tap the screen for each dhikr, Takbir counts for you.</p>
+            <ul data-l="fr"><li>Tasbih après la prière ou istighfar</li><li>Vibration légère à chaque dhikr</li><li>Arabe, phonétique et traduction</li></ul>
+            <ul data-l="en"><li>Tasbih after prayer or istighfar</li><li>A light vibration with each dhikr</li><li>Arabic, transliteration and translation</li></ul>
+          </div>
+          <div class="row-phone">
+            <div class="phone" aria-hidden="true">
+              <div class="screen" id="tasbih" style="cursor:pointer">
+                <div class="sbar"><span>17:02</span><span class="icons"><i style="width:15px;height:9px"></i><i style="width:22px;height:10px;border-radius:3px"></i></span></div>
+                <div class="topnav" style="margin-bottom:8px"><span class="round">‹</span><b style="font-size:13px" data-l="fr">Tasbih après Asr</b><b style="font-size:13px" data-l="en">Tasbih after Asr</b><span class="muted">1/3</span></div>
+                <div class="seg3"><i class="on"></i><i></i><i></i></div>
+                <div class="tas">
+                  <div class="ar g">سُبْحَانَ ٱللَّٰهِ</div>
+                  <b>SubhanAllah</b>
+                  <span class="muted" data-l="fr">Gloire à Allah</span><span class="muted" data-l="en">Glory be to Allah</span>
+                </div>
+                <div class="ring">
+                  <svg viewBox="0 0 100 100">
+                    <defs><linearGradient id="ringG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#C9A86A"/></linearGradient></defs>
+                    <circle cx="50" cy="50" r="44" fill="none" stroke="#1c1c1c" stroke-width="6"/>
+                    <circle id="ringBar" cx="50" cy="50" r="44" fill="none" stroke="url(#ringG)" stroke-width="6" stroke-linecap="round" stroke-dasharray="276.5" stroke-dashoffset="176"/>
+                  </svg>
+                  <div class="val"><b id="tasbihCount">12</b><span data-l="fr">sur 33</span><span data-l="en">of 33</span></div>
+                </div>
+                <div class="tap-hint" data-l="fr">Touche l’écran pour compter</div>
+                <div class="tap-hint" data-l="en">Tap the screen to count</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Réveil Fajr -->
+        <div class="row flip reveal">
+          <div class="row-text">
+            <span class="eyebrow" data-l="fr">Réveil Fajr</span><span class="eyebrow" data-l="en">Fajr alarm</span>
+            <h2 data-l="fr">Demain matin, tu ne rates pas Fajr.</h2>
+            <h2 data-l="en">Tomorrow morning, you won’t miss Fajr.</h2>
+            <p class="lead" data-l="fr">L’adhan en entier, à l’heure que tu choisis. Pour l’arrêter, tu maintiens le bouton : impossible de l’éteindre à moitié endormi.</p>
+            <p class="lead" data-l="en">The full adhan, at the time you choose. To stop it, you hold the button: no switching it off half-asleep.</p>
+            <ul data-l="fr"><li>Plusieurs voix d’adhan au choix</li><li>À l’heure de Fajr ou un peu avant</li><li>« Je me lève, Bismillah »</li></ul>
+            <ul data-l="en"><li>Several adhan voices to choose from</li><li>At Fajr time or a little before</li><li>“I’m getting up, Bismillah”</li></ul>
+          </div>
+          <div class="row-phone">
+            <div class="phone" aria-hidden="true">
+              <div class="screen">
+                <div class="sbar"><span>06:43</span><span class="icons"><i style="width:15px;height:9px"></i><i style="width:22px;height:10px;border-radius:3px"></i></span></div>
+                <div class="alarm">
+                  <div class="time">06:43</div>
+                  <h4 data-l="fr">C’est l’heure de Fajr</h4><h4 data-l="en">It’s time for Fajr</h4>
+                  <div class="muted">Adhan · Ali Ibn Ahmed Mala</div>
+                  <span class="pause" data-l="fr">❙❙ Mettre en pause</span><span class="pause" data-l="en">❙❙ Pause</span>
+                </div>
+                <div class="slide"><span data-l="fr">Je me lève, Bismillah</span><span data-l="en">I’m up, Bismillah</span></div>
+                <div class="slide-note" data-l="fr">Maintiens 3 secondes pour commencer ta journée.</div>
+                <div class="slide-note" data-l="en">Hold for 3 seconds to start your day.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Suivi -->
+        <div class="row reveal">
+          <div class="row-text">
+            <span class="eyebrow" data-l="fr">Ta progression</span><span class="eyebrow" data-l="en">Your progress</span>
+            <h2 data-l="fr">Tes 5 prières à l’heure. In sha Allah.</h2>
+            <h2 data-l="en">Your 5 prayers on time. In sha Allah.</h2>
+            <p class="lead" data-l="fr">Semaine après semaine, tu vois ce qui progresse et quelle prière te demande le plus d’effort. Sans culpabilité, juste de la clarté.</p>
+            <p class="lead" data-l="en">Week after week, see what’s improving and which prayer needs the most effort. No guilt, just clarity.</p>
+            <ul data-l="fr"><li>Série de jours à l’heure</li><li>Détail prière par prière</li><li>Widget sur l’écran d’accueil</li></ul>
+            <ul data-l="en"><li>Streak of on-time days</li><li>Prayer-by-prayer breakdown</li><li>Home Screen widget</li></ul>
+          </div>
+          <div class="row-phone">
+            <div class="phone" aria-hidden="true">
+              <div class="screen">
+                <div class="sbar"><span>21:30</span><span class="icons"><i style="width:15px;height:9px"></i><i style="width:22px;height:10px;border-radius:3px"></i></span></div>
+                <div class="s-title" style="margin-top:6px">
+                  <b data-l="fr">Ma prière</b><b data-l="en">My prayer</b>
+                  <span class="seg"><span class="on" data-l="fr">Semaine</span><span class="on" data-l="en">Week</span><span data-l="fr">Mois</span><span data-l="en">Month</span></span>
+                </div>
+                <div class="card-s">
+                  <div class="muted" style="font-size:11px" data-l="fr">Prières à l’heure</div><div class="muted" style="font-size:11px" data-l="en">Prayers on time</div>
+                  <div class="kpi"><b class="gh">86 %</b><span class="up">↑ +18 pts</span></div>
+                  <div class="chart">
+                    <div><i style="height:62px"></i><span data-l="fr">L</span><span data-l="en">M</span></div>
+                    <div><i class="low" style="height:46px"></i><span data-l="fr">M</span><span data-l="en">T</span></div>
+                    <div><i style="height:76px"></i><span data-l="fr">M</span><span data-l="en">W</span></div>
+                    <div><i class="low" style="height:38px"></i><span>J</span></div>
+                    <div><i style="height:76px"></i><span data-l="fr">V</span><span data-l="en">F</span></div>
+                    <div><i style="height:62px"></i><span>S</span></div>
+                    <div><i style="height:62px"></i><span data-l="fr">D</span><span data-l="en">S</span></div>
+                  </div>
+                </div>
+                <div class="card-s per">
+                  <small data-l="fr">PRIÈRE PAR PRIÈRE</small><small data-l="en">PRAYER BY PRAYER</small>
+                  <div class="per-row"><b>Fajr</b><div class="bar"><i style="width:57%"></i></div><span>57 %</span></div>
+                  <div class="per-row"><b>Dhuhr</b><div class="bar"><i style="width:86%"></i></div><span>86 %</span></div>
+                  <div class="per-row"><b>Asr</b><div class="bar"><i style="width:100%"></i></div><span>100 %</span></div>
+                  <div class="per-row"><b>Maghrib</b><div class="bar"><i style="width:100%"></i></div><span>100 %</span></div>
+                  <div class="per-row"><b>Isha</b><div class="bar"><i style="width:86%"></i></div><span>86 %</span></div>
+                </div>
+                <div class="tabbar">
+                  <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11l8-7 8 7v9H4z"/></svg><span data-l="fr">Aujourd’hui</span><span data-l="en">Today</span></div>
+                  <div class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 20V12M12 20V5M18 20v-9"/></svg><span data-l="fr">Ma prière</span><span data-l="en">My prayer</span></div>
+                  <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg><span data-l="fr">Réglages</span><span data-l="en">Settings</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Atouts ============ -->
+    <section class="block" style="padding-top:20px">
+      <div class="wrap">
+        <div class="grid">
+          <div class="tile reveal">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7v5l3 2"/></svg></div>
+            <h3 data-l="fr">5 min avant l’adhan</h3><h3 data-l="en">5 min before the adhan</h3>
+            <p data-l="fr">Le temps de poser ton téléphone et de faire tes ablutions.</p>
+            <p data-l="en">Just enough time to put your phone down and make wudu.</p>
+          </div>
+          <div class="tile reveal">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
+            <h3 data-l="fr">Un verset par jour</h3><h3 data-l="en">A verse a day</h3>
+            <p data-l="fr">En arabe, en phonétique et traduit. À lire, puis à partager.</p>
+            <p data-l="en">In Arabic, transliterated and translated. Read it, then share it.</p>
+          </div>
+          <div class="tile reveal">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+            <h3 data-l="fr">Temps d’écran d’Apple</h3><h3 data-l="en">Apple Screen Time</h3>
+            <p data-l="fr">La pause passe par le système officiel d’Apple : fiable et sans bidouille.</p>
+            <p data-l="en">The pause uses Apple’s official system: reliable, no hacks.</p>
+          </div>
+          <div class="tile reveal">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/><path d="M3 3l18 18"/></svg></div>
+            <h3 data-l="fr">Aucun compte</h3><h3 data-l="en">No account</h3>
+            <p data-l="fr">Pas d’inscription, pas d’e-mail. Tu ouvres l’app et tu commences.</p>
+            <p data-l="en">No sign-up, no email. Open the app and start.</p>
+          </div>
+          <div class="tile reveal">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></div>
+            <h3 data-l="fr">Ta vie privée respectée</h3><h3 data-l="en">Your privacy respected</h3>
+            <p data-l="fr">Ta position GPS, tes horaires et tes apps ne quittent jamais ton iPhone.</p>
+            <p data-l="en">Your GPS location, prayer times and apps never leave your iPhone.</p>
+          </div>
+          <div class="tile reveal">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="18" height="8" rx="2"/></svg></div>
+            <h3 data-l="fr">Widget</h3><h3 data-l="en">Widget</h3>
+            <p data-l="fr">La prochaine prière d’un coup d’œil, sur ton écran d’accueil.</p>
+            <p data-l="en">The next prayer at a glance, right on your Home Screen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Verset ============ -->
+    <section class="ayah">
+      <div class="wrap reveal">
+        <p class="ar">إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا</p>
+        <blockquote data-l="fr">« La prière est, pour les croyants, une obligation à des heures bien déterminées. »</blockquote>
+        <blockquote data-l="en">“Indeed, prayer has been decreed upon the believers a decree of specified times.”</blockquote>
+        <cite data-l="fr">CORAN 4:103</cite><cite data-l="en">QURAN 4:103</cite>
+      </div>
+    </section>
+
+    <!-- ============ Questions ============ -->
+    <section class="block" id="questions">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-l="fr">Questions</span><span class="eyebrow" data-l="en">FAQ</span>
+          <h2 data-l="fr">Tes questions, nos réponses</h2><h2 data-l="en">Your questions, answered</h2>
+        </div>
+        <div class="faq reveal">
+          <details data-l="fr"><summary>Comment Takbir met mes apps en pause ?</summary>
+            <p>Takbir utilise Temps d’écran, le système officiel d’Apple. Tu choisis les apps une fois, et elles se mettent en pause automatiquement 5 minutes avant chaque adhan.</p></details>
+          <details data-l="en"><summary>How does Takbir pause my apps?</summary>
+            <p>Takbir uses Screen Time, Apple’s official system. You pick the apps once, and they pause automatically 5 minutes before every adhan.</p></details>
+
+          <details data-l="fr"><summary>Comment je rouvre mes apps ?</summary>
+            <p>Après ta prière, tu fais un court tasbih ou tu lis le verset du jour. Tes apps se rouvrent tout de suite.</p></details>
+          <details data-l="en"><summary>How do I unlock my apps?</summary>
+            <p>After your prayer, do a short tasbih or read the verse of the day. Your apps unlock right away.</p></details>
+
+          <details data-l="fr"><summary>Combien ça coûte ?</summary>
+            <p>Tu peux essayer Takbir gratuitement pendant 7 jours avec l’abonnement annuel. Le prix est affiché dans l’app avant toute validation, et tu peux annuler à tout moment depuis les Réglages de ton iPhone.</p></details>
+          <details data-l="en"><summary>How much does it cost?</summary>
+            <p>You can try Takbir free for 7 days with the yearly plan. The price is shown in the app before you confirm, and you can cancel anytime from your iPhone Settings.</p></details>
+
+          <details data-l="fr"><summary>Mes données sont-elles protégées ?</summary>
+            <p>Oui. Ta position, tes horaires de prière et les apps que tu choisis restent sur ton iPhone. Il n’y a pas de compte à créer. Tous les détails sont dans la <a href="privacy.html">politique de confidentialité</a>.</p></details>
+          <details data-l="en"><summary>Is my data protected?</summary>
+            <p>Yes. Your location, prayer times and the apps you choose stay on your iPhone. There’s no account to create. All the details are in the <a href="privacy.html">privacy policy</a>.</p></details>
+
+          <details data-l="fr"><summary>Takbir existe sur Android ?</summary>
+            <p>Pas encore : Takbir est disponible sur iPhone (iOS 18 ou plus récent).</p></details>
+          <details data-l="en"><summary>Is Takbir on Android?</summary>
+            <p>Not yet: Takbir is available on iPhone (iOS 18 or later).</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Appel final ============ -->
+    <section class="cta">
+      <div class="wrap">
+        <div class="cta-box reveal">
+          <img src="icon.png" alt="">
+          <h2 data-l="fr">Ta prière d’abord.<br><span class="gold">Le reste ensuite.</span></h2>
+          <h2 data-l="en">Your prayer first.<br><span class="gold">Everything else after.</span></h2>
+          <p data-l="fr">Rejoins ceux qui reprennent le contrôle de leur téléphone, une prière à la fois.</p>
+          <p data-l="en">Join those taking back control of their phone, one prayer at a time.</p>
+          <a class="store-button" data-appstore href="#">
+            <svg aria-hidden="true"><use href="#apple"/></svg>
+            <span><small data-l="fr">Télécharger sur</small><small data-l="en">Download on the</small>App Store</span>
+          </a>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -65,5 +463,31 @@
       <a data-lang-toggle href="#"></a>
     </div>
   </footer>
+
+  <script>
+    // Apparition douce des sections au défilement
+    (function () {
+      var items = document.querySelectorAll(".reveal");
+      if (!("IntersectionObserver" in window)) { items.forEach(function (e) { e.classList.add("visible"); }); return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target); } });
+      }, { rootMargin: "0px 0px -60px 0px" });
+      items.forEach(function (e) { io.observe(e); });
+    })();
+
+    // Le tasbih du site : touche le téléphone pour compter
+    (function () {
+      var screen = document.getElementById("tasbih");
+      var count = document.getElementById("tasbihCount");
+      var bar = document.getElementById("ringBar");
+      var n = 12, total = 276.5;
+      screen.addEventListener("click", function () {
+        n = n >= 33 ? 1 : n + 1;
+        count.textContent = n;
+        bar.style.strokeDashoffset = total - total * n / 33;
+        if (navigator.vibrate) navigator.vibrate(8);
+      });
+    })();
+  </script>
 </body>
 </html>
